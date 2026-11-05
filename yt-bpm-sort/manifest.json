@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YT BPM Sort",
+  "version": "0.3.0",
+  "description": "Affiche, trie et filtre les résultats YouTube par BPM et tonalité (idéal pour trouver des prods / type beats).",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.beatstars.com/*",
+    "https://*.beatstars.com/*",
+    "https://bsta.rs/*",
+    "https://airbit.com/*",
+    "https://*.airbit.com/*",
+    "https://traktrain.com/*",
+    "https://bit.ly/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
